@@ -24,11 +24,35 @@ const defaultConfigurationTemplate = {
         "datatype": "int",
         "minVal": 0
     },
+    "showTooltips": {
+        "label": "Show Tooltips",
+        "datatype": "boolean"
+    },
+    "showZoomX": {
+        "label": "Show X Axis Zoom",
+        "datatype": "boolean"
+    },
+    "showZoomY": {
+        "label": "Show Y Axis Zoom",
+        "datatype": "boolean"
+    },
     "wellbore": {
         "label": "Wellbore",
+        "gunWidth": {
+            "label": "Gun Width",
+            "datatype": "int"
+        },
+        "gunColor": {
+            "label": "Gun Color",
+            "datatype": "string"
+        },
         "perforationBaseWidth": {
             "label": "Perf Base Width",
             "datatype": "int"
+        },
+        "perforationColor": {
+            "label": "Perf Color",
+            "datatype": "string"
         },
         "perforationLength": {
             "label": "Perf Length",
@@ -42,15 +66,15 @@ const defaultConfigurationTemplate = {
             "label": "Perf Right",
             "datatype": "boolean"
         },
+        "plugColor": {
+            "label": "Plug Color",
+            "datatype": "string"
+        },
         "plugWidth": {
             "label": "Plug Width",
             "datatype": "int"
         },
         "scales": {
-            "diagramLeftPadding": {
-                "label": "Diagram Left Padding",
-                "datatype": "int"
-            },
             "tvdScaleDisplay": {
                 "label": "TVD Scale Display",
                 "datatype": "boolean"
@@ -59,14 +83,6 @@ const defaultConfigurationTemplate = {
                 "label": "TVD Scale Grid Display",
                 "datatype": "boolean"
             },
-            /*"tvdScaleFontSize": {
-                "label": "TVD Scale Font Size",
-                "datatype": "int"
-            },*/
-            "tvdScaleOffset": {
-                "label": "TVD Scale Offset",
-                "datatype": "int"
-            }
         }
     }
 }

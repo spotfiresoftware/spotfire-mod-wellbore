@@ -9,17 +9,22 @@ const defaultConfiguration = {
     "rowLimit": 1000,
     "trellisDirection": "Columns",
     "maxTrellisCount": 10,
+    "showTooltips": true,
+    "showZoomX": false,
+    "showZoomY": false,
     "wellbore": {
+        "gunWidth": 5,
+        "gunColor": "purple",
         "perforationBaseWidth": 5,
+        "perforationColor": "dimgrey",
         "perforationLength": 30,
         "perforationLeft": true,
         "perforationRight": true,
-        "plugWidth": 5,
+        "plugColor": "black",
+        "plugWidth": 10,
         "scales": {
-            "diagramLeftPadding": 400,
             "tvdScaleDisplay": true,
             "tvdScaleGridDisplay": true,
-            "tvdScaleOffset": 250
         }
     }
 }

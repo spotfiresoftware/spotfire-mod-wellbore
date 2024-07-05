@@ -12,7 +12,7 @@ The Wellbore Mod is a schematic representation of a wellbore in 2 dimensions, pl
 1. The visualization mod is added to the analysis.
 1. To learn about the capabilities and limitations of this visualization mod, keep reading.
 
-For general information on how to use and share visualization mods, [read the Spotfire documentation](https://docs.tibco.com/pub/sfire-analyst/14.1.0/doc/html/en-US/TIB_sfire-analyst_UsersGuide/index.htm#t=modvis%2Fmodvis_how_to_use_a_visualization_mod.htm).
+For general information on how to use and share visualization mods, [read the Spotfire documentation](https://docs.tibco.com/pub/sfire-analyst/latest/doc/html/en-US/TIB_sfire-analyst_UsersGuide/index.htm#t=modvis%2Fmodvis_how_to_use_a_visualization_mod.htm).
 
 ## Data requirements
 
@@ -28,11 +28,13 @@ For perfectly vertical wells, TVD and MD are the same at any given point. For de
 
 These two values represent co-ordinates for plotting the wellbore form in the visualization. Additional data can be plotted along the wellbore:
 
+* **Guns** - tools used to create perforations.
+
+* **Fills** - a value which will apply from the top of the wellbore to a specific measured depth with a specified value. Generally you will have only one of these for a wellbore.
+
 * **Perforations** - holes punched through the casing material into the formation to facilitate fluid transfer into the wellbore.
 
 * **Plugs** - tools that are used to isolate part of a wellbore for completion activities.
-
-* **Fills** - a value which will apply from the top of the wellbore to a specific measured depth with a specified value. Generally you will have only one of these for a wellbore.
 
 * **Values** - a value at a specified measured depth which will display a value at that depth, +/- half way to the next depth value provided. Generally you will have a series of these for a wellbore.
 
@@ -60,7 +62,9 @@ Mandatory. Must contain one of the following permitted values depending on row c
 
 * **Perforation** - identifies perforation rows, drawn as triangles on the left and right borehole lines indication perforation locations. Optional, multiple rows per visualization.
 
-* **Plugs** - identifies plug rows, drawn as a single box across the width of the wellbore at the specified measured depth. Optional, multiple rows per visualization.
+* **Gun** - identifies gun rows, drawn as a diamond across the diameter of the wellbore. Optional, multiple rows per visualization.
+
+* **Plug** - identifies plug rows, drawn as a single box across the width of the wellbore at the specified measured depth. Optional, multiple rows per visualization.
 
 Any other value will cause the row to be ignored.
 
@@ -70,7 +74,7 @@ These different row types and how they are rendered are shown in this diagram:
 
 ### MD 
 
-Mandatory for all row types. Measured depth. Must be in units consistent with Diameter and TVD.
+Mandatory for Trajectory, Value, Fill, Gun, and Plug row types (all except Perforation). Measured depth. Must be in units consistent with Diameter and TVD.
 
 ### TVD 
 
@@ -98,6 +102,14 @@ And with an exaggeration factor of 200:
 
 Mandatory for Value row types, optional for Fil row types. Ignored for other row types. Value at the specified MD for Value row types and the value up to the specified MD for Fill row types. Does not render on the visualization directly, but will be visible in the tooltip.
 
+### Perf Start MD
+
+Mandatory for Perforation row types. Ignored for other row types. Starting measured depth for perforation interval.
+
+### Perf End MD
+
+Mandatory for Perforation row types. Ignored for other row types. Ending measured depth for perforation interval.
+
 ### Color 
 
 Optional. Sets the color of the Fill or Value row. This axis supports both continuous and categorical expressions.
@@ -113,19 +125,23 @@ Additional configuration for the mod can be accessed by clicking on the small se
 | Row Limit | Maximum number of rows to render | If the row count is exceeded then an error message will be displayed. This is a safety feature to keep from accidentally rendering too much data. |
 | Trellis Direction | Direction for trellis panels | Columns or Rows |
 | Max Trellis Panel Count | Maximum number of trellis panels to render | If the panel count is exceeded then an error message will be displayed. This is a safety feature to keep from accidentally rendering too much data. |
+| Show Tooltips | Display tooltips | |
+| Show X Axis Zoom | Display X-axis zoom slider | |
+| Show Y Axis Zoom | Display Y-axis zoom slider | |
+| Gun Width | Gun width in pixels | |
+| Gun Color | Gun color | May be any valid HTML color name or hex color code |
 | Perf Base Width | Perforation base width in pixels | Depending on wellbore scaling it might be necessary to adjust this setting and perf length to get a reasonable render |
+| Perf Color | Perforation color | May be any valid HTML color name or hex color code |
 | Perf Length | Perforation length in pixels | |
 | Perf Left | Show perforations on borehole left  | For horizontal wells, this will be the bottom |
 | Perf Right | Show perforations on borehole right  | For horizontal wells, this will be the top |
 | Plug Width | Plug width in pixels | Depending on wellbore scaling it might be necessary to adjust this setting to get a reasonable render |
-| Diagram Left Padding | Left padding offset | When displaying TVD scale it may be necessary to adjust this |
 | TVD Scale Display | Show TVD scale |  |
 | TVD Scale Grid Display | Show TVD scale grid |  |
-| TVD Scale Offset | Left scale offset | When displaying TVD scale it may be necessary to adjust this |
 
 ## Using the Wellbore
 
-Once the mod is configured it will render a schematic representation of a wellbore, associated fills and values, perforations, and plugs. All data rows are keyed on MD and fills and values will be computed to follow the wellbore size and geometry.
+Once the mod is configured it will render a schematic representation of a wellbore, associated fills and values, guns, perforations, and plugs. All data rows are keyed on MD and fills and values will be computed to follow the wellbore size and geometry.
 
 ### Marking
 

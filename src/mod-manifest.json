@@ -1,14 +1,19 @@
 {
     "apiVersion": "1.3",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "Wellbore",
     "id": "wellbore-diagram",
-    "icon": "icon.svg",
+    "icon": "images/wellbore_24x24.svg",
     "properties": [
         {
             "name": "mod-config",
             "type": "string",
             "defaultValue": ""
+        },
+        {
+            "name": "zoom",
+            "type": "string",
+            "defaultValue": "{\"x\":{\"rangeFrom\":0.0,\"rangeTo\":1.0},\"y\":{\"rangeFrom\":0.0,\"rangeTo\":1.0}}"
         }
     ],
     "dataViewDefinition": {
@@ -75,6 +80,26 @@
                     "allowNumeric": true,
                     "allowDateTime": false
                 }
+            },
+            {
+                "name": "Perf Start MD",
+                "mode": "continuous",
+                "placement": "none",
+                "allowNonAggregatingMeasures": true,
+                "dataTypes": {
+                    "allowNumeric": true,
+                    "allowDateTime": false
+                }
+            },
+            {
+                "name": "Perf End MD",
+                "mode": "continuous",
+                "placement": "none",
+                "allowNonAggregatingMeasures": true,
+                "dataTypes": {
+                    "allowNumeric": true,
+                    "allowDateTime": false
+                }
             }
         ],
         "tooltip": {
@@ -82,16 +107,19 @@
         }
     },
     "files": [
-        "default_configuration.js",
-        "default_configuration_template.js",
+        "common/rect_marking.js",
+        "common/trellis.js",
+        "common/utility.js",
+        "common/viz_configuration.js",
+        "common/zoom_handler.js",
+        "config/default_configuration.js",
+        "config/default_configuration_template.js",
+        "css/main.css",
+        "css/wellbore_diagram.css",
+        "lib/d3.v7.min.js",
         "index.html",
-        "main.css",
         "main.js",
-        "rect_marking.js",
-        "viz_configuration.js",
-        "wellbore_diagram.css",
         "wellbore_diagram.js",
-        "wellbore_objects.js",
-        "wellbore_util.js"
+        "wellbore_objects.js"
     ]
 }

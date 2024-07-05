@@ -45,6 +45,18 @@ class Plug {
 
 
 class Perforation {
+    constructor(startMD, endMD, color, colorValue, row) {
+        this.startMD = startMD;
+        this.endMD = endMD;
+        this.color = color;
+        this.colorValue = colorValue;
+        this.row = row;
+    }
+}
+
+
+
+class Gun {
     constructor(md, color, colorValue, row) {
         this.md = md;
         this.color = color;
